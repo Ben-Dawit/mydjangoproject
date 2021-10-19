@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-edzo74p)82hdxe#_bny(^rg%a)b-+g9uxo*%h7_nv4790d1dwn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.128.27.30']
+ALLOWED_HOSTS = ['3.128.27.30',
+'127.0.0.1']
 
 
 # Application definition
@@ -37,9 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'studentapp.apps.StudentappConfig'
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,14 +80,17 @@ WSGI_APPLICATION = 'mydjangoproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'homework3db',
-	'USER': 'admin',
-	'PASSWORD': 'mastergeorge9',
-	'HOST': 'database-1.cw5ow7jizjpc.us-east-2.rds.amazonaws.com',
-	'PORT': '3315',
+	    'USER': 'admin',
+	    'PASSWORD': 'mastergeorge9',
+	    'HOST': 'database-1.cw5ow7jizjpc.us-east-2.rds.amazonaws.com',
+	    'PORT': '3315'
     }
 }
 
