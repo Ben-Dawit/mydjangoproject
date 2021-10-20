@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+
+<form>
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <label for="StudentId">Your name: </label>
+        <input id="StudentId" type="text" name="StudentId">
+    </form>
+    <form action = "" method = "POST">
+        {% csrf_token %}
+        <label for="StudentGrade">Your name: </label>
+        <input id="StudentGrade" type="text" name="StudentGrade">
+    </form>
+<input type="submit" value="OK">
+</form>
+
+</html>

@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from django.http.response import JsonResponse
+from django.http.response import HttpResponse, JsonResponse
 
 from studentapp.models import Students
 from studentapp.serializers import studentSerializer
+
+def home(request):
+    context = {
+        'Students': Students.objects.all() 
+    }
+    return render(request, 'studentapp/home.html',context)
 
 @csrf_exempt
 def studentApi(request, id=0):

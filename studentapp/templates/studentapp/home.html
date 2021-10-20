@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Hi</h1>
+</head>
+
+<body>
+    {% for Student in Students %}
+        <h3> Student ID: {{ Student.StudentId }} </h3>
+        <p> Student Grade: {{ Student.StudentGrade}}</p>
+    {% endfor %}
+</body>
+</html>
